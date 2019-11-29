@@ -73,23 +73,9 @@ public class MainWindow extends JFrame {
         addShapeComboBox.addItem(Information.regularPentagonName);
         operateShapeComboBox.addItem("---请选择---");
 
-        //为添加图形复合框和操作图形复合框增加监听器
-        addShapeComboBox.addActionListener(e -> addShapeComboBoxActionPerformed());
-        operateShapeComboBox.addActionListener(e -> operateShapeComboBoxActionPerformed());
-    }
-
-    /**
-     * 添加图形复合框的触发事件
-     */
-    private void addShapeComboBoxActionPerformed() {
-        graphicController.showGraphicDataDialog();
-    }
-
-    /**
-     * 操作图形复合框的触发事件
-     */
-    private void operateShapeComboBoxActionPerformed() {
-        graphicController.operateShapeComboBoxActionPerformed();
+        //为添加图形复合框和操作图形复合框增加触发事件
+        addShapeComboBox.addActionListener(e -> graphicController.showGraphicDataDialog());
+        operateShapeComboBox.addActionListener(e -> graphicController.operateShapeComboBoxActionPerformed());
     }
 
     /**

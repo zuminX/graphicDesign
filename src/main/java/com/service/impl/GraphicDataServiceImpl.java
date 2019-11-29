@@ -147,6 +147,7 @@ public class GraphicDataServiceImpl implements GraphicDataService {
         shapeCollectionData.removeShape(modifyIndex);
         //添加新数据
         shapeCollectionData.addShape(shape);
+
         return true;
     }
 

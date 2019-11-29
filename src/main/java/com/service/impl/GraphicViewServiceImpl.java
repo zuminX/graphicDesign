@@ -52,7 +52,7 @@ public class GraphicViewServiceImpl implements GraphicViewService {
      */
     @Override
     public void showErrorInformation(String err) {
-        JOptionPane.showMessageDialog(null, err, "ERROR", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, err, "错误", JOptionPane.ERROR_MESSAGE);
     }
 
     /**
@@ -140,29 +140,6 @@ public class GraphicViewServiceImpl implements GraphicViewService {
     }
 
     /**
-     * 显示信息的提示框
-     *
-     * @param message 信息
-     * @param title   标题
-     */
-    @Override
-    public void showMessageDialog(String message, String title) {
-        JOptionPane.showMessageDialog(viewComponent.getGraphicPanel().getRootPane(), message, title, JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    /**
-     * 显示确认对话框
-     *
-     * @param content 文本内容
-     * @param title   标签
-     * @return 0为确定, 1为取消,-1为关闭窗口
-     */
-    @Override
-    public int showConfirmDialog(String content, String title) {
-        return JOptionPane.showConfirmDialog(viewComponent.getGraphicPanel().getRootPane(), content, title, JOptionPane.YES_NO_OPTION);
-    }
-
-    /**
      * 添加图形下拉选
      */
     @Override
@@ -180,7 +157,8 @@ public class GraphicViewServiceImpl implements GraphicViewService {
     @Override
     public int showDeleteShapeConfirmDialog(int index) {
         final Shape willDeleteShape = shapeCollectionData.getShapes().get(index);
-        return showConfirmDialog("您确定要删除该图形吗？\n" + willDeleteShape.getString(), "删除提示");
+        return JOptionPane.showConfirmDialog(viewComponent.getGraphicPanel().getRootPane(), "您确定要删除该图形吗？\n" + willDeleteShape.getString(), "删除提示",
+                JOptionPane.YES_NO_OPTION);
     }
 
     /**
@@ -201,7 +179,8 @@ public class GraphicViewServiceImpl implements GraphicViewService {
     @Override
     public void showShapeDetails(int index) {
         final Shape shape = shapeCollectionData.getShapes().get(index);
-        showMessageDialog(shape.getDetailedString(), "图形数据");
+        JOptionPane.showMessageDialog(viewComponent.getGraphicPanel().getRootPane(), shape.getDetailedString(), "图形数据",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**

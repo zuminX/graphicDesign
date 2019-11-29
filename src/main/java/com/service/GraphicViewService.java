@@ -39,23 +39,6 @@ public interface GraphicViewService {
     void showNowShapeRadio();
 
     /**
-     * 显示信息的提示框
-     *
-     * @param message 信息
-     * @param title   标题
-     */
-    void showMessageDialog(String message, String title);
-
-    /**
-     * 显示确认对话框
-     *
-     * @param content 文本内容
-     * @param title   标签
-     * @return 0为确定, 1为取消,-1为关闭窗口
-     */
-    int showConfirmDialog(String content, String title);
-
-    /**
      * 添加图形下拉选
      */
     void addShapeItemData();
